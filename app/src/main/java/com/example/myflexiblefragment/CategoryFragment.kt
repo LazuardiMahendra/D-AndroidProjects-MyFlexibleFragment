@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.myflexiblefragment.R.id.btn_category
 
 class CategoryFragment : Fragment(), View.OnClickListener {
 
@@ -24,11 +23,32 @@ class CategoryFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val btnDetailCategory: Button = view.findViewById(btn_category)
+        val btnDetailCategory: Button = view.findViewById(R.id.btn_detail_category)
         btnDetailCategory.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
+        if (view?.id == R.id.btn_detail_category) {
+            val detailCategoryFragment = DetailCategoryFragment()
 
+            val bundle = Bundle()
+            bundle.putString(DetailCategoryFragment.EXTRA_NAME, "Lifestyle")
+            val description = "Kategori ini akan diisi produk-produk lifestyle"
+
+            detailCategoryFragment.arguments = bundle
+            detailCategoryFragment.description = description
+
+            val fragmentManager = parentFragmentManager
+            fragmentManager?.beginTransaction()?.apply {
+                replace(
+                    R.id.frame_layout,
+                    detailCategoryFragment,
+                    DetailCategoryFragment::class.java.simpleName
+                )
+                    .addToBackStack(null)
+                    .commit()
+
+            }
+        }
     }
 }
