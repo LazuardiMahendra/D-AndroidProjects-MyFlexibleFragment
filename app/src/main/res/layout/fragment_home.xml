@@ -13,7 +13,7 @@
         android:text="@string/hello_home_fragment" />
 
     <Button
-        android:id="@+id/btn_category"
+        android:id="@+id/btn_detail_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"

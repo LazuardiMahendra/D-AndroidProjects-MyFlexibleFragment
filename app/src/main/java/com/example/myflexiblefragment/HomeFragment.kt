@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.myflexiblefragment.R.id.btn_category
+import com.example.myflexiblefragment.R.id.btn_detail_category
 import com.example.myflexiblefragment.R.id.frame_layout
 
 
@@ -25,12 +25,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val btnCategory: Button = view.findViewById(btn_category)
+        val btnCategory: Button = view.findViewById(btn_detail_category)
         btnCategory.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
-        if (view?.id == btn_category) {
+        if (view?.id == btn_detail_category) {
             val categoryFragment = CategoryFragment()
             val fragmentManager = parentFragmentManager
             fragmentManager.beginTransaction().apply {
